@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: dev
+#控制台打印SQL语句
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+---
+spring:
+  profiles: dev
+  application:
+    name: wordtree
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:src/main/resources/wordtree.db
+
+---
+spring:
+  profiles: prod
+  application:
+    name: wordtree
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite::resource:wordtree.db
+
+
